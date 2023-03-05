@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+<div class="row m-4">
+  <div class="col text-center border border-dark">
+    <h1>Superhero Sightings</h1>
+  </div>
+</div>
+<div class="row m-4 border border-dark">
+  <div class="col text-center m-3">
+    <a href="/" class="btn btn-outline-primary btn-lg">Home</a>
+  </div>
+  <div class="col text-center m-3">
+    <a href="superheroes" class="btn btn-outline-primary btn-lg">Superheroes</a>
+  </div>
+  <div class="col text-center m-3">
+    <a href="locations" class="btn btn-outline-primary btn-lg">Locations</a>
+  </div>
+  <div class="col text-center m-3">
+    <a href="organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+  </div>
+</div>
+
+  <div class="row m-4 border border-dark">
+    <div class="col-3 text-center m-3">
+      <span class="h3">Edit Superhero</span>
+    </div>
+    <div class="col-7 text-center m-3">
+      <form action="editSuperhero" method="POST">
+
+        <div class="form-group row">
+
+          <label for="supeName" class="col-3 col-form-label">
+            Superhero Name</label>
+          <div class="col-9">
+            <input type="text" name="supeName" id="supeName"
+                   class="form-control" th:value="${superhero.SupeName}"/>
+            <div th:if="${#fields.hasErrors('superhero.SupeName')}">
+              <p th:each="error : ${#fields.errors('superhero.SupeName')}" class="alert alert-danger"
+                 th:text="${error}"> Bad superhero name </p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="supeDescription" class="col-3 col-form-label">
+            Superhero Description</label>
+          <div class="col-9">
+            <input type="text" name="supeDescription" id="supeDescription"
+                   class="form-control"  th:value="${superhero.SupeDescription}"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Superpower" class="col-3 col-form-label">
+            Superpower</label>
+          <div class="col-9">
+            <input type="text" name="Superpower" id="Superpower"
+                   class="form-control"  th:value="${superhero.Superpower}"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hero" class="col-3 col-form-label">
+            Specialty</label>
+          <div class="col-9">
+            <input type="text" name="hero" id="hero"
+                   class="form-control" th:value="${superhero.Hero}">
+          </div>
+        </div>
+        <input type="hidden" name="id" th:value="${superhero.SupeID}"/>
+        <button type="submit" class="btn btn-primary">
+          Update Superhero</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

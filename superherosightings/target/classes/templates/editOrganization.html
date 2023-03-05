@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="row m-4">
+    <div class="col text-center border border-dark">
+      <h1>Superhero Sightings</h1>
+    </div>
+  </div>
+  <div class="row m-4 border border-dark">
+    <div class="col text-center m-3">
+      <a href="/" class="btn btn-outline-primary btn-lg">Home</a>
+    </div>
+    <div class="col text-center m-3">
+      <a href="superheroes" class="btn btn-outline-primary btn-lg">Superheroes</a>
+    </div>
+    <div class="col text-center m-3">
+      <a href="locations" class="btn btn-outline-primary btn-lg">Locations</a>
+    </div>
+    <div class="col text-center m-3">
+      <a href="organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+    </div>
+  </div>
+
+
+<div class="row m-4 border border-dark">
+  <div class="col-3 text-center m-3">
+    <span class="h3">Edit Organization</span>
+  </div>
+  <div class="col-7 text-center m-3">
+    <form action="editOrganization" method="POST">
+      <div class="form-group row">
+        <label for="OrgName" class="col-3 col-form-label">Organization Name</label>
+        <div class="col-9">
+          <input type="text" name="OrgName" id="OrgName" class="form-control"
+                 th:value="${organization.OrgName}"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="TeamDescription" class="col-3 col-form-label">
+          Team Description</label>
+        <div class="col-9">
+          <input type="text" name="TeamDescription"
+                 id="TeamDescription" class="form-control"
+                 th:value="${organization.TeamDescription}"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="superheroes" class="col-3 col-form-label">Superheroes</label>
+        <div class="col-9">
+          <select multiple id="superheroes" name="SupeID"
+                  class="form-control">
+            <option th:each="superhero : ${superheroes}"
+                    th:value="${superhero.SupeID}"
+                    th:text="${superhero.SupeName}"
+                    th:selected="${organization.members.contains(superhero)}">
+              Superhero Name</option>
+          </select>
+        </div>
+      </div>
+      <input type="hidden" name="id" th:value="${organization.OrganizationID}"/>
+      <button type="submit" class="btn btn-primary">Edit Organization</button>
+    </form>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
