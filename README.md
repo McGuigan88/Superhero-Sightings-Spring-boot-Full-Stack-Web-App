@@ -19,4 +19,18 @@ With the rising popularity of superhero movies, there has been a heightened awar
 - The system must be able to report all of the members of a particular organization.
 - The system must be able to report all of the organizations a particular superhero/villain belongs to.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d44b973-83ea-4b1f-9ae3-ef5d6a859998/Untitled.png)
+Entity relationship diagram:
+![erd](https://user-images.githubusercontent.com/60005842/222970813-97c3520b-39f8-4eb5-af82-f61b2a7ef721.png)
+
+# Part II - Spring Boot Web App
+
+The Hero Education and Relationship Organization (HERO) is so impressed with the work we did on the Superhero Sightings Data Layer project that they have awarded us a contract to build a Spring Boot web application. The system has the following requirements:
+
+1. It must have a screen(s) to create, view, edit, and delete superheroes/supervillains in the system.
+2. It must have a screen(s) to create, view, edit, and delete superpowers in the system.
+3. It must have a screen(s) to create, view, edit, and delete locations in the system.
+4. It must have a screen(s) to create, view, edit, and delete superhero/supervillain organizations in the system.
+5. It must have a screen(s) to create, view, edit, and delete superhero/supervillain sighting (superhero/supervillain, location, and time) in the system.
+6. It must have a home page that displays general information about the application, navigation to all the other pages, and a newsfeed of the latest 10 sightings in the database.
+7. CHALLENGE 1: Allow users to upload a picture for each superhero/supervillain and then display the picture when the sighting(s) of that superhero/supervillain is displayed.
+8. CHALLENGE 2: Incorporate Google Maps into the home/landing page and show the location of each of the sightings in the sightings news feed (this is a stretch goal - completely on your own. We have no material about incorporating Google maps into your application).
